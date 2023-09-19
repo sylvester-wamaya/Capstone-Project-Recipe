@@ -1,6 +1,16 @@
-<h1>Editing recipe food</h1>
-
-<%= render "form", recipe_food: @recipe_food %>
+<h1>Edit recipe food</h1>
+<div>
+    <%= form_with model: @recipe_food, url: recipe_food_path(@recipe_food), class: "form-container", method: :patch do |f| %>
+        <h2 >Editing: <%= @recipe_food.food.name %></h2>
+        <div class="field">
+            <%= f.label :quantity, style: "display: block" %>
+            <%= f.text_field :quantity, min: 0 %>
+        </div>
+        <div class="field">
+            <%= f.submit 'Submit' %>
+        </div>
+    <% end %>
+</div>
 
 <br>
 

@@ -11,19 +11,24 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :quantity, style: "display: block" %>
-    <%= form.number_field :quantity %>
+   <div class="field">
+    <%= form.label :food_id %>
+    <% if @listed_foods.present? %>
+     <%= form.collection_select(:food_id, @listed_foods, :id, :name, {}, {}) %>
+    <% else %>
+      <p>No foods available. Please add food first.</p>
+      <%= link_to "Add New Food", new_food_path %>
+    <% end %>
   </div>
 
-  <div>
-    <%= form.label :recipe_id, style: "display: block" %>
-    <%= form.text_field :recipe_id %>
-  </div>
-
-  <div>
-    <%= form.label :food_id, style: "display: block" %>
-    <%= form.text_field :food_id %>
+    <div class="field">
+      <%= form.label :quantity, style: "display: block" %>
+      <%= form.text_field :quantity %>
+    </div>
+   
+     <div class="field">
+    <%= form.label :recipe_id %>
+    <%= form.collection_select(:recipe_id, [@recipe], :id, :name, disabled: true) %>
   </div>
 
   <div>
