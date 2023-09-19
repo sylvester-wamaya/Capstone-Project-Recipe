@@ -15,7 +15,6 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
- 
   end
 
   # GET /recipes/1/edit
@@ -62,7 +61,7 @@ class RecipesController < ApplicationController
   def public_recipes
     @public_recipes = Recipe.includes(:user, :recipe_foods).where(public: true)
   end
-  
+
   def toggle_public
     @recipe = Recipe.find(params[:id])
     @recipe.update(public: !@recipe.public)

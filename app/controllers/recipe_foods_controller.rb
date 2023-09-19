@@ -14,7 +14,6 @@ class RecipeFoodsController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @recipe_food = RecipeFood.new
     @listed_foods = Food.where(user: current_user)
-
   end
 
   # GET /recipe_foods/1/edit
