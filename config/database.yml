@@ -5,7 +5,7 @@ development:
   pool: 5
   host: localhost
   username: postgres
-  password: Wa.ma.84
+  password: <%= ENV["DATABASE_PASSWORD"] %>
 
 test:
   adapter: postgresql
@@ -13,7 +13,7 @@ test:
   database: RecipeCapstone_test
   pool: 5
   username: postgres
-  password: Wa.ma.84
+  password: <%= ENV["DATABASE_PASSWORD"] %>
 
 staging:
   url: <%= ENV['DATABASE_URL'] %>
