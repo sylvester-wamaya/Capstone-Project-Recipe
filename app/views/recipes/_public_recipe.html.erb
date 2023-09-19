@@ -1,0 +1,19 @@
+
+<div>
+<div>
+<%= link_to recipe.name, recipe_path(recipe) %>
+<p>By:
+<%=recipe.user.name%>
+</p>
+<div>
+<div>
+<p>
+Total food items:
+<%=recipe.recipe_foods.size%>
+</p>
+<p>
+Total price:
+<%=recipe.recipe_foods.reduce(0) {|sum, recipe_food| sum + recipe_food.food.price}%>
+</p>
+<div>
+</div>

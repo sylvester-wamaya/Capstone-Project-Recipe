@@ -7,14 +7,14 @@
     <p><%= link_to "Steps go here...", recipe_path(recipe) %></p>
     </div>
     <p>
-   
+   <% if can? :edit, recipe %>
         <%= render partial: 'recipes/public_toggle', locals: { recipe: recipe } %>
-   
+    <% end %>
 </p>
     </div>
     <div>
-    <button>Generate shopping list'</button>
-    <%= link_to "Add ingredient", new_recipe_food_path(recipe_id: @recipe.id)%>
+    <%=button_to 'Generate shopping list', general_shopping_list_path %>
+     <%=button_to 'Add ingredient', new_recipe_food_path(recipe_id: @recipe.id) if can? :edit, @recipe%>
     </div>
 
 

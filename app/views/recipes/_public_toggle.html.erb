@@ -1,0 +1,4 @@
+<%= form_for recipe, url: recipe_path(recipe), method: :patch do |f| %>
+  <%= f.hidden_field :public, value: !recipe.public %>
+  <%= f.submit recipe.public ? 'Make Private' : 'Make Public' %>
+<% end %>
