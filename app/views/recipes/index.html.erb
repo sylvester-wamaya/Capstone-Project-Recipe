@@ -4,7 +4,24 @@
 
 <div id="recipes">
   <% @recipes.each do |recipe| %>
-    <%= render recipe %>
+   <div id="<%= dom_id recipe %>">
+<div>
+  <p>
+    <strong>
+    <%= link_to recipe.name, recipe_path(recipe) %>
+    <%=recipe.id%>
+    </strong>
+  </p>
+<%=button_to "REMOVE", recipe, method: :delete%>
+</div>
+  <p>
+   
+    <%= recipe.description %>
+  </p>
+
+
+</div>
+
     <p>
       <%= link_to "Show this recipe", recipe %>
     </p>
