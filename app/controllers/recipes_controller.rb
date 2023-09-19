@@ -3,15 +3,19 @@ class RecipesController < ApplicationController
 
   # GET /recipes or /recipes.json
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.where(user: current_user)
   end
 
   # GET /recipes/1 or /recipes/1.json
-  def show; end
+  def show
+    @recipe = Recipe.find(params[:id])
+    @recipe_food = @recipe.recipe_foods
+  end
 
   # GET /recipes/new
   def new
     @recipe = Recipe.new
+ 
   end
 
   # GET /recipes/1/edit
@@ -20,7 +24,7 @@ class RecipesController < ApplicationController
   # POST /recipes or /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
-
+    @recipe.user = current_user
     respond_to do |format|
       if @recipe.save
         format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }
@@ -53,6 +57,17 @@ class RecipesController < ApplicationController
       format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def public_recipes
+    @public_recipes = Recipe.includes(:user, :recipe_foods).where(public: true)
+  end
+  
+  def toggle_public
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(public: !@recipe.public)
+
+    redirect_to recipe_url(@recipe), notice: 'Public status was successfully updated.'
   end
 
   private
