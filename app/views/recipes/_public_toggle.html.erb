@@ -1,4 +1,12 @@
+
 <%= form_for recipe, url: recipe_path(recipe), method: :patch do |f| %>
-  <%= f.hidden_field :public, value: !recipe.public %>
-  <%= f.submit recipe.public ? 'Make Private' : 'Make Public' %>
+<div class="toggle">
+ <span>Public</span>  
+  <label  class="switch">  
+   
+  <%= f.check_box :public, checked: recipe.public, onchange: "this.form.requestSubmit();", class:"check-box" %>
+  <span class="slider round"></span>
+  </label>
+  </div>
+
 <% end %>

@@ -1,4 +1,4 @@
-<section>
+<section class="public">
     <h1>Public Recipes</h1>
     <ul>
         <% @public_recipes.includes([:recipe_foods]).each do |public_recipe| %>
@@ -7,4 +7,5 @@
         </li>
         <% end %>
     </ul>
+    
 </section>

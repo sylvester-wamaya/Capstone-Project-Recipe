@@ -1,20 +1,17 @@
 
-    <h2><%= recipe.name %> <%= recipe.id%></h2>
-    <div>
-   <div>
-    <p>Preparation time: <%= recipe.preparation_time %></p>
-    <p>Cooking time: <%= recipe.cooking_time %></p>
+    
+    <div class="recipe-details-container">
+   <div class="recipe-details">
+    <p>Preparation time: <strong><%= recipe.preparation_time %> hours</strong></p>
+    <p>Cooking time: <strong><%= recipe.cooking_time %> hours</strong></p>
     <p><%= link_to "Steps go here...", recipe_path(recipe) %></p>
     </div>
-    <p>
-   
-        <%= render partial: 'recipes/public_toggle', locals: { recipe: recipe } %>
-   
-</p>
+   <%= render partial: 'recipes/public_toggle', locals: { recipe: recipe }, class:"button-toggle" %>  
+
     </div>
-    <div>
-    <button>Generate shopping list'</button>
-    <%= link_to "Add ingredient", new_recipe_food_path(recipe_id: @recipe.id)%>
+    <div class="btn-container">
+    <%= link_to "Generate shopping list", shopping_list_index_path, class:"button"%>
+    <%= link_to "Add ingredient", new_recipe_food_path(recipe_id: @recipe.id), class:"button"%>
     </div>
 
 
