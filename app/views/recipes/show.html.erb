@@ -1,6 +1,9 @@
 <p style="color: green"><%= notice %></p>
 <section>
-
+<% content_for :head do %>
+  <%= stylesheet_link_tag "recipe" %>
+<% end %>
+<h1><%= @recipe.name %> <%= @recipe.id %></h1>
   <%= render @recipe%>
 <% if @recipe_food.empty?%>
 <hr/>
@@ -22,19 +25,22 @@
         <td><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td>
         <td>$ <%= recipe_food.quantity * recipe_food.food.price %></td>
         <td>
-          <%= link_to 'Modify', edit_recipe_food_path(recipe_food) %> 
-           <%= button_to 'Remove', recipe_food_path(recipe_food), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <div class="link-btn">
+          <%= link_to 'Modify', edit_recipe_food_path(recipe_food), class:"link" %> 
+           <%= button_to 'Remove', recipe_food_path(recipe_food), method: :delete, data: { confirm: 'Are you sure?' }, class:"link remove" %>
+           </div>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 <% end %>
-<div>
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
-  <%= link_to "Back to recipes", recipes_path %>
+<div class="btn-container">
+<%= button_to "Destroy this recipe", @recipe, method: :delete, class:"button" %>
+  <%= link_to "Edit this recipe", edit_recipe_path(@recipe), class:"button" %>
+  <%= link_to "Back to recipes", recipes_path, class:"button" %>
 
-  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
+  
 </div>
 
 </section>
