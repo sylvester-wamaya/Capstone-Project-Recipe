@@ -1,0 +1,25 @@
+.custom-link {
+  color: teal;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.custom-link:hover {
+  text-decoration: underline;
+}
+
+.custom-button {
+  background-color: teal;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.custom-button:hover {
+  background-color: #007f7f;
+}
