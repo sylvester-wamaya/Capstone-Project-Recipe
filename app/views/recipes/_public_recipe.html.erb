@@ -13,7 +13,8 @@ Total food items:
 <strong><%=recipe.recipe_foods.size%></strong>
 </p>
 <p>
-Total price: <strong>$<%=recipe.recipe_foods.reduce(0) {|sum, recipe_food| sum + recipe_food.food.price}%></strong>
+<%sum=recipe.recipe_foods.reduce(0) { |sum, recipe_food| sum + recipe_food.food.price.to_s.to_d*recipe_food.quantity.to_s.to_d }%>
+Total price: <strong>$<%=sum%></strong>
 </p>
 <div>
 </div>

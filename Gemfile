@@ -9,6 +9,8 @@ gem 'rails', '~> 7.0.7', '>= 7.0.7.2'
 # Rubocop
 gem 'rubocop', '>= 1.0', '< 2.0'
 
+gem 'cancancan'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
