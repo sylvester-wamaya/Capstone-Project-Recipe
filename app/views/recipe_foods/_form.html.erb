@@ -1,3 +1,4 @@
+<div class="form">
 <%= form_with(model: recipe_food) do |form| %>
   <% if recipe_food.errors.any? %>
     <div style="color: red">
@@ -35,3 +36,7 @@
     <%= form.submit %>
   </div>
 <% end %>
+<div>
+  <%= link_to "Back", @recipe_food.recipe , class:"button"%> 
+</div>
+</div>
