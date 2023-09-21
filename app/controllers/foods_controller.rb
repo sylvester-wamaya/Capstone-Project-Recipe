@@ -1,6 +1,6 @@
 class FoodsController < ApplicationController
   load_and_authorize_resource
-  before_action :set_food, only: [:show, :edit, :update, :destroy]
+  before_action :set_food, only: %i[show edit update destroy]
 
   def index
     @foods = Food.all
@@ -41,12 +41,12 @@ class FoodsController < ApplicationController
     @food.destroy
 
     if @food.destroy
-      flash[:success] = "Food item deleted successfully."
+      flash[:success] = 'Food item deleted successfully.'
     else
-      flash[:error] = "Failed to delete the food item."
+      flash[:error] = 'Failed to delete the food item.'
     end
     redirect_to foods_path
-  end  
+  end
 
   private
 
