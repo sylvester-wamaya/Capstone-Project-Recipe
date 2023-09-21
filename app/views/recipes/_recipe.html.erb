@@ -6,7 +6,7 @@
     <p>Cooking time: <strong><%= recipe.cooking_time %> hours</strong></p>
     <p><%= link_to "Steps go here...", recipe_path(recipe) %></p>
     </div>
-   <%= render partial: 'recipes/public_toggle', locals: { recipe: recipe }, class:"button-toggle" %>  
+   <%= render partial: 'recipes/public_toggle', locals: { recipe: recipe }, class:"button-toggle" if can? :edit, recipe %>  
 
     </div>
     <div class="btn-container">
