@@ -1,26 +1,39 @@
-<h2>Log in</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Capstone</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+
+  <!-- Link to the external CSS file -->
+  <link rel="stylesheet" type="text/css" href="/assets/styles.css">
+</head>
+
+<body class="custom-body">
+  <div class="container custom-container">
+    <h2 class="custom-heading">Log in</h2>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field custom-field">
+        <%= f.label :email, class: "custom-label" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "custom-input" %>
+      </div>
+
+      <div class="field custom-field">
+        <%= f.label :password, class: "custom-label" %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class: "custom-input" %>
+      </div>
+
+      <div class="actions custom-actions">
+        <%= f.submit "Log in", class: "custom-submit" %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</body>
+</html>
