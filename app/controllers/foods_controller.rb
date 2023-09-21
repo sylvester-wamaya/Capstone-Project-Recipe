@@ -25,9 +25,7 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
   end
 
-  def edit
-    # This action is already implemented with the `before_action`
-  end
+  def edit; end
 
   def update
     if @food.update(food_params)
@@ -38,8 +36,6 @@ class FoodsController < ApplicationController
   end
 
   def destroy
-    @food.destroy
-
     if @food.destroy
       flash[:success] = 'Food item deleted successfully.'
     else
