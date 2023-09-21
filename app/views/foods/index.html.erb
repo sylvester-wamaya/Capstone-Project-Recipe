@@ -1,10 +1,24 @@
 <h1>Food list</h1>
 
-<% @foods.each do |food| %>
-  <p><%= food.name %></p>
-  <p><%= food.measurement_unit%></p>
-  <p><%= food.price %></p>
-  <p><%= food.quantity %></p>
-<% end %>
+<table class="food-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Measurement Unit</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @foods.each do |food| %>
+      <tr>
+        <td><%= link_to food.name, food_path(food), class: 'food-name' %></td>
+        <td><%= food.measurement_unit %></td>
+        <td><%= food.price %></td>
+        <td><%= food.quantity %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<%= link_to 'New Food', new_food_path %>
+<p class="new-food"><%= link_to 'New Food', new_food_path, class: 'btn btn-success' %></p>
