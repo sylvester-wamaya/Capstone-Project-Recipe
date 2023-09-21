@@ -1,0 +1,30 @@
+<h1>Edit Food Item</h1>
+
+<%= form_for @food do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :measurement_unit %>
+    <%= f.text_field :measurement_unit %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </div>
+
+  <div class="field">
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit 'Update' %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', food_path(@food) %> |
+<%= link_to 'Back', foods_path %>
