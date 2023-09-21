@@ -1,4 +1,4 @@
-<section>
+<div class="form">
 <%= form_with(model: recipe) do |form| %>
   <% if recipe.errors.any? %>
     <div style="color: red">
@@ -34,11 +34,12 @@
 
   <div>
     <%= form.label :public, style: "display: block" %>
-    <%= form.check_box :public %>
+    <%= form.check_box :public%>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit%>
   </div>
 <% end %>
-<section>
+</div>
+

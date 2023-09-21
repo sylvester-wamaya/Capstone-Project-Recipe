@@ -1,7 +1,9 @@
-<h1>Edit recipe food</h1>
+<section>
+<div class="form">
+<h1>Editing: <%= @recipe_food.food.name %></h1>
 <div>
     <%= form_with model: @recipe_food, url: recipe_food_path(@recipe_food), class: "form-container", method: :patch do |f| %>
-        <h2 >Editing: <%= @recipe_food.food.name %></h2>
+        
         <div class="field">
             <%= f.label :quantity, style: "display: block" %>
             <%= f.text_field :quantity, min: 0 %>
@@ -15,6 +17,8 @@
 <br>
 
 <div>
-  <%= link_to "Show this recipe food", @recipe_food %> |
-  <%= link_to "Back to recipe foods", recipe_foods_path %>
+  <%= link_to "Back", @recipe_food.recipe , class:"button"%> 
 </div>
+</div>
+</section>
+
