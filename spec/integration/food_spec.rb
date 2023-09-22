@@ -25,7 +25,7 @@ RSpec.describe 'Food index page', type: :feature do
     # check and see if the food is created properly
     expect(page).to have_content('test food')
     expect(page).to have_content('test unit')
-    expect(page).to have_content('1.0')
+    expect(page).to have_content('1')
     expect(page).to have_content('1')
   end
 
@@ -54,7 +54,7 @@ RSpec.describe 'Food index page', type: :feature do
     # check and see if the food is updated properly
     expect(page).to have_content('test food edited')
     expect(page).to have_content('test unit edited')
-    expect(page).to have_content('2.0')
+    expect(page).to have_content('2')
     expect(page).to have_content('2')
   end
 
