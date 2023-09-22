@@ -1,39 +1,24 @@
-<h1>Shopping list</h1>
+<h1>General Shopping List</h1>
 
 <table class="food-table">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Quantity</th>
+      <th>Missing Quantity</th>
       <th>Price</th>
     </tr>
   </thead>
   <tbody>
-    <% @user_foods.each do |food| %>
-      <tr>
-        <td><%= link_to food.name, food_path(food), class: 'food-name' %></td>
-        <td><%= food.quantity %> <%= food.measurement_unit %></td>
-        <td>$<%= food.price * food.quantity %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <ul class="shopping-list-head">
+      <li><strong>Amount of foods items to buy: <%= @missing_foods.length %></strong></li>
+      <li><strong>Total value of food needed: <strong>$<%= @missing_foods.sum { |missing_food| missing_food[:food].price * missing_food[:missing_quantity] } %></strong></li>
+    </ul>
 
-<table class="food-table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Quantity</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <% @all_recipe_foods.each do |recipe_food| %>
+    <% @missing_foods.each do |missing_food| %>
       <tr>
-        <td><%= recipe_food.food.name %></td>
-        <td><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td>
-        <td>$ <%= recipe_food.quantity * recipe_food.food.price %></td>
+        <td><%= link_to missing_food[:food].name, food_path(missing_food[:food]), class: 'food-name' %></td>
+        <td><%= missing_food[:missing_quantity] %></td>
+        <td>$<%= missing_food[:food].price * missing_food[:missing_quantity] %></td>
       </tr>
     <% end %>
   </tbody>
