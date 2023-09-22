@@ -87,6 +87,23 @@ Install this project with:
   bundle install
 ```
 
+### Update database.yml file with database credentials
+- Navigate to config/database.yml
+- Update the user and password to match your postgresql user and password.
+
+### Create database and migrate
+Run the following code-
+
+```sh
+  rails db:create
+  rails db:migrate
+```
+
+### Run server
+```sh
+  rails s
+```
+
 ### Run tests
 
 To run tests, run the following command:
