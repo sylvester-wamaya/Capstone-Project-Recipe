@@ -10,7 +10,7 @@ class ShoppingListController < ApplicationController
 
       if recipe_food.present? && recipe_food.quantity > user_food.quantity
         missing_quantity = recipe_food.quantity - user_food.quantity
-        @missing_foods << { food: user_food, missing_quantity: missing_quantity }
+        @missing_foods << { food: user_food, missing_quantity: }
       end
     end
   end
