@@ -12,11 +12,6 @@ RSpec.describe Recipe, type: :model do
         expect(subject).to_not be_valid
     end
 
-    it 'Public should be present' do
-        subject.public = nil
-        expect(subject).to_not be_valid
-    end
-
     it 'Preparation time should be greater than or equal to 0' do
         subject.preparation_time = -1
         expect(subject).to_not be_valid

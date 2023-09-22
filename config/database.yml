@@ -12,6 +12,7 @@ test:
   encoding: unicode
   database: RecipeCapstone_test
   pool: 5
+  host: localhost
   username: postgres
   password: <%= ENV["DATABASE_PASSWORD"] %>
 
