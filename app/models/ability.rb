@@ -13,7 +13,7 @@ class Ability
       can %i[edit destroy update], RecipeFood.includes([:recipe]) do |recipe_food|
         recipe_food.recipe.user == user
       end
-      can :destroy, Food, user_id: user.id
+      can %i[destroy edit update], Food, user_id: user.id
       can %i[update destroy], Recipe, user_id: user.id
       can :read, Recipe, public: true
       can :public_recipes, Recipe

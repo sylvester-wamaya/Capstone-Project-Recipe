@@ -1,0 +1,64 @@
+/* styles.css */
+
+/* Body and container styles */
+body.custom-body {
+  background-color: #f7f7f7;
+  font-family: Arial, sans-serif;
+}
+
+.container.custom-container {
+  background-color: white;
+  max-width: 400px;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2.custom-heading {
+  text-align: center;
+  color: teal;
+}
+
+.field.custom-field {
+  margin-bottom: 10px;
+}
+
+label.custom-label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: black;
+}
+
+input.custom-input[type="text"],
+input.custom-input[type="email"],
+input.custom-input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.actions.custom-actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+input.custom-submit[type="submit"] {
+  background-color: teal;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input.custom-submit[type="submit"]:hover {
+  background-color: #007f7f;
+}
+
+.error-messages.custom-error-messages {
+  color: red;
+  margin-top: 10px;
+}
