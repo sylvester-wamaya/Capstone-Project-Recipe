@@ -1,23 +1,25 @@
-<h1>Shopping list</h1>
+<h1>General Shopping List</h1>
 
 <table class="food-table">
   <thead>
     <tr>
       <th>Name</th>
+      <th>Missing Quantity</th>
       <th>Price</th>
     </tr>
   </thead>
   <tbody>
-    <% @unused_foods.each do |food| %>
+    <ul class="shopping-list-head">
+      <li><strong>Amount of foods items to buy: <%= @missing_foods.length %></strong></li>
+      <li><strong>Total value of food needed: <strong>$<%= @missing_foods.sum { |missing_food| missing_food[:food].price * missing_food[:missing_quantity] } %></strong></li>
+    </ul>
+
+    <% @missing_foods.each do |missing_food| %>
       <tr>
-        <td><%= link_to food.name, food_path(food), class: 'food-name' %></td>
-        <td>$<%= food.price * food.quantity %></td>
+        <td><%= link_to missing_food[:food].name, food_path(missing_food[:food]), class: 'food-name' %></td>
+        <td><%= missing_food[:missing_quantity] %></td>
+        <td>$<%= missing_food[:food].price * missing_food[:missing_quantity] %></td>
       </tr>
     <% end %>
   </tbody>
-  <tfoot>
-    <tr>
-      <td><strong>Total</strong></td>
-      <td><strong>$<%= @unused_foods.sum { |food| food.price * food.quantity } %></strong></td>
-    </tr>
 </table>

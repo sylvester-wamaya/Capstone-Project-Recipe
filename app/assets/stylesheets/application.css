@@ -186,3 +186,18 @@ tr:hover {
 .form-group {
   margin-bottom: 20px;
 }
+
+.shopping-list-head {
+  display: flex;
+  width: 100%;
+  margin: auto;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.shopping-list-head li {
+  font-size: 25px;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
