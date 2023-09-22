@@ -87,6 +87,12 @@ GEM
       xpath (~> 3.2)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
+    database_cleaner (2.0.2)
+      database_cleaner-active_record (>= 2, < 3)
+    database_cleaner-active_record (2.1.0)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
     date (3.3.3)
     debug (1.8.0)
       irb (>= 1.5.0)
@@ -173,6 +179,10 @@ GEM
       activesupport (= 7.0.8)
       bundler (>= 1.15.0)
       railties (= 7.0.8)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.2.0)
       activesupport (>= 5.0.0)
       minitest
@@ -283,6 +293,7 @@ DEPENDENCIES
   bootsnap
   cancancan
   capybara
+  database_cleaner
   debug
   devise
   importmap-rails
@@ -290,6 +301,7 @@ DEPENDENCIES
   pg
   puma (~> 5.0)
   rails (~> 7.0.7, >= 7.0.7.2)
+  rails-controller-testing
   rspec-rails
   rubocop (>= 1.0, < 2.0)
   selenium-webdriver

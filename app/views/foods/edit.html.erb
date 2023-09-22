@@ -1,0 +1,31 @@
+<h1 class="custom-heading">Edit Food Item</h1>
+
+<div class="container">
+  <%= form_for @food do |f| %>
+    <div class="field">
+      <%= f.label :name, class: "custom-label" %>
+      <%= f.text_field :name, class: "custom-input" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :measurement_unit, class: "custom-label" %>
+      <%= f.text_field :measurement_unit, class: "custom-input" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :price, class: 'custom-label' %>
+      <%= f.number_field :price, class: 'custom-input' %>
+    </div>
+
+    <div class="field">
+      <%= f.label :quantity, class: "custom-label" %>
+      <%= f.number_field :quantity, class: "custom-input" %>
+    </div>
+
+    <div class="actions custom-actions">
+      <%= f.submit 'Update', class: "custom-submit" %>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to 'Back', food_path(@food), class: "custom-link" %>
