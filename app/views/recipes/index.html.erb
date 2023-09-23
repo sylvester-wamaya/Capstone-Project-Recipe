@@ -1,0 +1,31 @@
+<% content_for :head do %>
+  <%= stylesheet_link_tag "recipe" %>
+<% end %>
+<p style="color: green"><%= notice %></p>
+<section>
+<h1>Recipes</h1>
+
+<%= link_to "New recipe", new_recipe_path, class: "button" %>
+
+<div id="recipes">
+  <% @recipes.each do |recipe| %>
+   <div id="<%= dom_id recipe %>" class="recipe-container">
+<div>
+  <p  class="recipe-name">
+   
+    <%= link_to recipe.name, recipe %>
+    <%=recipe.id%>
+    
+  </p>
+<%=button_to "REMOVE", recipe, method: :delete, class:"link remove"%>
+</div>
+  <p class="recipe-description">
+   
+    <%= recipe.description %>
+  </p>
+
+
+</div>
+  <% end %>
+</div>
+</section>

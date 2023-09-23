@@ -1,0 +1,45 @@
+<h2 class="custom-heading">Edit <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field custom-field">
+    <%= f.label :email, class: "custom-label" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "custom-input" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div class="custom-info">
+      Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+    </div>
+  <% end %>
+
+  <div class="field custom-field">
+    <%= f.label :password, class: "custom-label" %> <i class="custom-info">(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password", class: "custom-input" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em class="custom-em"><%= @minimum_password_length %> characters minimum</em>
+    <% end %>
+  </div>
+
+  <div class="field custom-field">
+    <%= f.label :password_confirmation, class: "custom-label" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "custom-input" %>
+  </div>
+
+  <div class="field custom-field">
+    <%= f.label :current_password, class: "custom-label" %> <i class="custom-info">(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", class: "custom-input" %>
+  </div>
+
+  <div class="actions custom-actions">
+    <%= f.submit "Update", class: "custom-submit" %>
+  </div>
+<% end %>
+
+<h3 class="custom-subheading">Cancel my account</h3>
+
+<div class="custom-info">Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "custom-button" %></div>
+
+<%= link_to "Back", :back, class: "custom-link" %>

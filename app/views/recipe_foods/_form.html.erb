@@ -1,0 +1,39 @@
+<div class="form">
+<%= form_with(model: recipe_food) do |form| %>
+  <% if recipe_food.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(recipe_food.errors.count, "error") %> prohibited this recipe_food from being saved:</h2>
+
+      <ul>
+        <% recipe_food.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="field">
+    <%= form.label :food_id %>
+    <% if @listed_foods.present? %>
+     <%= form.collection_select(:food_id, @listed_foods, :id, :name, {}, {}) %>
+    <% else %>
+      <p>No foods available. Please add food first.</p>
+      <%= link_to "Add New Food", new_food_path %>
+    <% end %>
+  </div>
+
+    <div class="field">
+      <%= form.label :quantity, style: "display: block" %>
+      <%= form.text_field :quantity %>
+    </div>
+   
+     <div class="field">
+    <%= form.label :recipe_id %>
+    <%= form.collection_select(:recipe_id, [@recipe], :id, :name, disabled: true) %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>

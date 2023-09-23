@@ -1,0 +1,221 @@
+h1 {
+  margin: 20px auto;
+  border-bottom: 1px solid teal;
+  padding-bottom: 10px;
+  width: max-content;
+}
+
+.button {
+  background-color: teal;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #fff;
+  color: teal;
+  border: 1px solid teal;
+}
+
+section {
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.recipe-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 5px #ccc;
+  display: flex;
+  gap: 20px;
+}
+
+.recipe-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  width: 150px;
+}
+
+.recipe-name a {
+  text-decoration: none;
+  color: #000;
+}
+
+.recipe-details a {
+  text-decoration: none;
+  color: teal;
+}
+
+.recipe-name:hover,
+.recipe-name a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: teal;
+}
+
+.recipe-description {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.link {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: teal;
+  font-weight: bold;
+}
+
+.link:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #000;
+}
+
+.recipe-details-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.recipe-details {
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+.recipe-details p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.button-toggle {
+  background-color: teal;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.button-toggle:hover {
+  background-color: #fff;
+  color: teal;
+  border: 1px solid teal;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.check-box {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.check-box:checked + .slider {
+  background-color: teal;
+}
+
+.check-box:focus + .slider {
+  box-shadow: 0 0 1px teal;
+}
+
+.check-box:checked + .slider::before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round::before {
+  border-radius: 50%;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid teal;
+}
+
+.remove {
+  border: none;
+  background-color: transparent;
+  display: inline-block;
+  width: fit-content;
+  text-decoration: underline;
+}
+
+.link-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: max-content;
+  gap: 10px;
+}
+
+.by {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.public {
+  padding-right: 15%;
+  padding-left: 15%;
+}

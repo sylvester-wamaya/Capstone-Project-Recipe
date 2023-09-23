@@ -1,0 +1,43 @@
+<p style="color: green"><%= notice %></p>
+<section>
+<% content_for :head do %>
+  <%= stylesheet_link_tag "recipe" %>
+<% end %>
+<h1><%= @recipe.name %> <%= @recipe.id %></h1>
+  <%= render @recipe%>
+<% if @recipe_food.empty?%>
+<hr/>
+  <p>There are no ingredients in this recipe</p>
+  <%else%>
+  <table>
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Value</th>
+       <%if can? :edit, @recipe%>
+      <th>Actions</th>
+       <%end%>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipe_food.includes([:food]).each do |recipe_food| %>
+      <tr>
+        <td><%= recipe_food.food.name %></td>
+        <td><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td>
+        <td>$ <%= recipe_food.quantity * recipe_food.food.price %></td>
+        <%if can? :edit, recipe_food%>
+        <td>
+        <div class="link-btn">
+          <%= link_to 'Modify', edit_recipe_food_path(recipe_food), class:"link" %> 
+           <%= button_to 'Remove', recipe_food_path(recipe_food), method: :delete, data: { confirm: 'Are you sure?' }, class:"link remove" %>
+           </div>
+        </td>
+        <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+</section>

@@ -1,0 +1,20 @@
+
+<div class="recipe-container">
+<div class="recipe-name" >
+<%= link_to recipe.name, recipe_path(recipe) %>
+<p class="by">By:
+<%=recipe.user.name%>
+</p>
+</div>
+
+<div>
+<p>
+Total food items:
+<strong><%=recipe.recipe_foods.size%></strong>
+</p>
+<p>
+<%sum=recipe.recipe_foods.reduce(0) { |sum, recipe_food| sum + recipe_food.food.price.to_s.to_d*recipe_food.quantity.to_s.to_d }%>
+Total price: <strong>$<%=sum%></strong>
+</p>
+<div>
+</div>
