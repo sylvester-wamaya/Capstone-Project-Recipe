@@ -1,10 +1,12 @@
 databases:
   - name: postgres
+    plan: free
     ipAllowList: []
 
 services:
   - type: web
-    name: recipe
+    name: rails
+    plan: free
     runtime: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: bundle exec rails s
@@ -15,8 +17,3 @@ services:
         fromDatabase:
           name: postgres
           property: connectionString
-  - type: redis
-    name: redis
-    ipAllowList: []
-    plan: free
-    maxmemoryPolicy: noeviction

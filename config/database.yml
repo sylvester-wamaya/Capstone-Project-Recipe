@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: RecipeCapstone_development
+  database: recipe_development
   pool: 5
   host: localhost
   username: postgres
@@ -10,17 +10,20 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: RecipeCapstone_test
+  database: recipe_test
   pool: 5
-  host: localhost
   username: postgres
   password: <%= ENV["DATABASE_PASSWORD"] %>
+  host: localhost
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: recipe_production
+  pool: 5
+  username: postgres
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
 
 staging:
   url: <%= ENV['DATABASE_URL'] %>
-
-production:
-  <<: *default
-  database: recipe_production
-  username: recipe
-  password: <%= ENV["RECIPE_DATABASE_PASSWORD"] %>
