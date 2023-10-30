@@ -20,4 +20,7 @@ staging:
   url: <%= ENV['DATABASE_URL'] %>
 
 production:
-  url: <%= ENV['DATABASE_URL'] %> 
+  <<: *default
+  database: recipe_production
+  username: recipe
+  password: <%= ENV["RECIPE_DATABASE_PASSWORD"] %>
